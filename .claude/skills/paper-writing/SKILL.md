@@ -40,6 +40,10 @@ Ask what is missing: target venue and its current author instructions (check the
 
 Short, direct sentences. Active voice. Define each term once and use it the same way after. No em-dashes, no hype words such as "novel" or "state-of-the-art" unless the results clearly support them.
 
+## Decisions
+
+Record the user's choices (target venue, template, section order, contribution wording, which claims go in the abstract) in a **Decision** section at the top of `06-draft.md`, and follow them in the draft.
+
 ## Output
 
 Save `research/<project-slug>/06-draft.md`, a section at a time or whole. Update `evidence-ledger.md` with any new IDs.

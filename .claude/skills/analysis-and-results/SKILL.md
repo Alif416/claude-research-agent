@@ -29,6 +29,10 @@ Goal: results that are correct, repeatable, and reported with exactly the streng
 ## Reference files
 
 `references/statistics-guide.md` has the test table, effect sizes, intervals, how to word claims about no effect, multiple comparisons, an audit mode checklist, the claim candidate entry with an example, and figure rules. Read it before step 5.
+## Decisions
+
+When the user decides what to do with a claim candidate (keep, weaken, revise, discard) or how to handle a deviation, write it in a **Decision** section at the top of `05-results.md` and update the claim row in the ledger. The paper stage must use the decided wording.
+
 ## Output
 
 Save `research/<project-slug>/05-results.md` (question, key findings, best-supported comparisons, caveats, claim candidates, deviations) with a `stats-appendix` section (tests, assumptions, effect sizes, intervals, corrections) and a `figure catalog` section (file, purpose, data source, caption needs, key observation). Do not write a manuscript-style Results section here. That belongs to the paper-writing stage.

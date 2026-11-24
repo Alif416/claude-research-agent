@@ -30,6 +30,10 @@ Read `03-research-question.md` and the comparison matrix in `02-literature-revie
 
 - `references/design-and-power.md`: unit and pseudoreplication, leakage checklist, fair baselines, choosing an effect size, sample size and runs, controls, reproducibility records
 - `templates/analysis-plan.md`: copy it to the top of `04-methodology.md` and fill it before any result exists
+## Decisions
+
+When the user chooses between options (a method, a baseline, a smaller scope, a number of runs), record each choice with its reason in a **Decision** section at the top of `04-methodology.md`, and make the plan match it. If they overrule a recommendation, say so there.
+
 ## Output
 
 Save `research/<project-slug>/04-methodology.md`. Include a one-page analysis plan at the top and a deviations log section that stays empty until Stage 5.

@@ -30,6 +30,10 @@ Goal: find what a tough reviewer would find, before a real reviewer does.
 ## Reference files
 
 `references/review-checklist.md` has the comment format, claim and evidence mismatches, design and statistics checks, citation matching, the reviewer simulation prompt and the verdict definitions.
+## Decisions
+
+After the review, ask the user what they will fix, what they will leave, and why. Record this in a **Decision** section at the top of `07-review.md`, next to the readiness verdict. The author decides when to submit.
+
 ## Output
 
 Save `research/<project-slug>/07-review.md`:

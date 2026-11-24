@@ -46,9 +46,9 @@ Give each candidate a verdict with a reason. Be strict.
 
 Verdicts: `worth-pursuing`, `reshape` (say how), or `do-not-pursue` (say why). Keep rejected candidates in the file so the user sees what was considered.
 
-## 7. Recommend
+## 7. Recommend and record the choice
 
-Name the top pick in 3 or 4 honest sentences, including the biggest risk and a fallback if it fails. The user decides.
+Name the top pick in 3 or 4 honest sentences, including the biggest risk and a fallback if it fails. The user decides. Ask which candidate they choose, or whether they want to reshape one. Then add a **Chosen topic** section at the top of `01-topic.md` with the topic in one line, which candidate it was, the user's reason, and whether it differs from your recommendation. Mark the other candidates `not chosen` and keep them. Update `00-state.md` with the same choice. Do not hand over to the next stage until this is written.
 
 ## Reference files
 

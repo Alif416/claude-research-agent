@@ -33,7 +33,7 @@ Write 1 to 3. For each: the prediction, the rival explanation it competes with, 
 
 ## Test the question
 
-Check each draft: specific (two people read it the same way), answerable (data and time exist), novel (differs from the closest papers, named from the ledger), worth answering (say who benefits). Recommend one and explain why in a few sentences.
+Check each draft: specific (two people read it the same way), answerable (data and time exist), novel (differs from the closest papers, named from the ledger), worth answering (say who benefits). Recommend one and explain why in a few sentences. When the user picks, add a **Decision** section at the top of `03-research-question.md` with the chosen wording and why, and make the card match it exactly. Keep the other drafts below as `not chosen`.
 
 ## Readiness gate
 
