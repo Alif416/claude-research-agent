@@ -1,8 +1,29 @@
-# claude-research-agent
+<h1 align="center">Claude Research Agent</h1>
 
-A Claude Code agent that guides a research project from a blank page to a finished paper, one stage at a time.
+<p align="center"><b>An end-to-end research assistant for Claude Code.</b><br>
+From a broad idea to a reviewed paper draft, one verified stage at a time.</p>
 
-You give it a research area. It helps you find a topic, review the literature, shape a research question, plan the method, run the analysis, draft the paper, and check the draft before you submit. Each stage has its own skill, so the agent follows a focused playbook for the job at hand instead of improvising everything from one big prompt.
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+  <a href="https://docs.claude.com/en/docs/claude-code/overview"><img alt="Built for Claude Code" src="https://img.shields.io/badge/built%20for-Claude%20Code-orange.svg"></a>
+  <a href="https://github.com/Alif416/claude-research-agent/issues"><img alt="Issues" src="https://img.shields.io/github/issues/Alif416/claude-research-agent"></a>
+  <a href="https://github.com/Alif416/claude-research-agent/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/Alif416/claude-research-agent?style=social"></a>
+</p>
+
+<p align="center">
+  <a href="#installation">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#the-seven-stages">The seven stages</a> ·
+  <a href="#how-the-literature-search-works">Literature search</a> ·
+  <a href="#credits">Credits</a> ·
+  <a href="https://github.com/Alif416/claude-research-agent/issues">Report an issue</a>
+</p>
+
+---
+
+Claude Research Agent is a Claude Code agent that guides a research project from a blank page to a finished paper, one stage at a time.
+
+You give it a research area. It helps you find a topic, review the literature, shape a research question, plan the method, run the analysis, draft the paper, and check the draft before you submit. Each stage has its own skill, so the agent follows a focused playbook for the job at hand instead of improvising everything from one big prompt. Every paper and number goes into a shared evidence ledger, and the draft may only state what traces back to it.
 
 ---
 
