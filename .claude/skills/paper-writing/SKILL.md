@@ -29,12 +29,13 @@ Ask what is missing: target venue and its current author instructions (check the
    - Results: only numbers from `05-results.md`, with the same wording limits as the claim candidates. Report null and negative results. Mark exploratory analyses as exploratory.
    - Limitations: honest and specific.
 4. **Reconcile.** Check that methods and results describe the same data, splits and metrics. Name any difference in analysis sets.
-5. **Cleanup pass for AI patterns.** Cut filler openers and emphasis words, shorten wordy phrases ("in order to" becomes "to"), use "is" instead of "serves as", avoid forced lists of three, drop vague attributions ("experts say"), and vary sentence length. Do not strip meaning, and keep the author's own voice. Score the draft from 1 to 10 on directness, rhythm, trust in the reader, authenticity and density, and fix the lowest.
+5. **Cleanup pass for AI patterns.** First run the lint script on the section: `python3 scripts/lint_style.py research/<project-slug>/06-draft.md`. It flags dashes, stock words, filler phrases, 'not just X but Y', tacked-on -ing phrases, stacked transitions, same-length sentences, neat summary closers, stacked hedges and repeated sentence starts, with line numbers. Fix every finding, then run it again until it is clean or each remaining finding is a deliberate choice (for example, "robust standard errors" is a real term). The script is a filter, not a judge, so still read the text yourself. Then: Cut filler openers and emphasis words, shorten wordy phrases ("in order to" becomes "to"), use "is" instead of "serves as", avoid forced lists of three, drop vague attributions ("experts say"), and vary sentence length. Do not strip meaning, and keep the author's own voice. Score the draft from 1 to 10 on directness, rhythm, trust in the reader, authenticity and density, and fix the lowest.
 6. **Show the user** each major section and take feedback before the next, unless they asked for a full draft in one go.
 
 ## Reference files
 
 - `references/structure-and-reporting.md`: evidence binding, never-invent list, reporting guidelines by study type, section purposes, consistency checks
+- `scripts/lint_style.py`: offline style lint (Python standard library only)
 - `references/ai-patterns.md`: the pattern list, filler to cut, hedging, voice, and the 1 to 10 score
 ## Style
 

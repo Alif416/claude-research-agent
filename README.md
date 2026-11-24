@@ -366,6 +366,8 @@ claude-research-agent/
           statistics-guide.md
       paper-writing/
         SKILL.md
+        scripts/
+          lint_style.py
         references/
           structure-and-reporting.md
           ai-patterns.md
