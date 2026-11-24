@@ -24,8 +24,9 @@ You give it a research area. It helps you find a topic, review the literature, s
 14. [Limitations](#limitations)
 15. [Troubleshooting](#troubleshooting)
 16. [Repository structure](#repository-structure)
-17. [Contributing](#contributing)
-18. [License](#license)
+17. [Credits](#credits)
+18. [Contributing](#contributing)
+19. [License](#license)
 
 ---
 
@@ -195,6 +196,7 @@ Each research project gets its own folder under `research/` in the directory whe
 research/
   federated-learning-healthcare/
     00-state.md                 current stage, decisions made, next step
+    evidence-ledger.md          sources, claims and numbers shared by all stages
     01-topic.md
     02-literature-review.md
     03-research-question.md
@@ -249,6 +251,8 @@ These apply in every stage.
 - **No test-set tuning.** If asked to tune on the test set, the agent explains why that would invalidate the result.
 - **Results stay real.** A number is never rounded up, adjusted, or typed by hand into a table. Tables come from the raw result files.
 - **Ask when unsure.** Scope, field, and depth are confirmed before the agent spends a lot of effort.
+- **One evidence ledger.** A single `evidence-ledger.md` tracks every source, claim and number across all stages. The paper can only state what traces back to a row in it.
+- **Stage gates.** Each stage must produce what the next one needs (for example a Research Question Card with no empty field) before the agent moves on.
 - **Plain writing.** Short, direct sentences, no filler, no hype words, no em-dashes.
 
 ## Customizing the skills
@@ -304,22 +308,69 @@ It looks for `research/<project>/0X-*.md`. Either run the earlier stage, or tell
 claude-research-agent/
   README.md
   LICENSE
+  THIRD-PARTY-NOTICES.md
   .claude/
     agents/
       research-agent.md
     skills/
-      topic-discovery/SKILL.md
+      topic-discovery/
+        SKILL.md
+        references/
+          search-boundary-and-gates.md
+          dead-ends-and-contribution.md
       literature-review/
         SKILL.md
+        references/
+          search-strategies.md
         scripts/
           search_arxiv.py
           search_semantic_scholar.py
-      research-question/SKILL.md
-      methodology-design/SKILL.md
-      analysis-and-results/SKILL.md
-      paper-writing/SKILL.md
-      final-review/SKILL.md
+          verify_citation.py
+        templates/
+          evidence-ledger.md
+      research-question/
+        SKILL.md
+        references/
+          question-framing.md
+          socratic-segments.md
+      methodology-design/
+        SKILL.md
+        references/
+          design-and-power.md
+        templates/
+          analysis-plan.md
+      analysis-and-results/
+        SKILL.md
+        references/
+          statistics-guide.md
+      paper-writing/
+        SKILL.md
+        references/
+          structure-and-reporting.md
+          ai-patterns.md
+      final-review/
+        SKILL.md
+        references/
+          review-checklist.md
 ```
+
+## Credits
+
+The seven skills were adapted from the methods of several open source projects, rewritten in our own words and merged into one connected workflow. Thank you to their authors.
+
+| Stage | Adapted from | License |
+|---|---|---|
+| 1. Topic discovery | [Galaxy-Dawn/claude-scholar](https://github.com/Galaxy-Dawn/claude-scholar) (`research-ideation`), [WenyuChiou/research-hub](https://github.com/WenyuChiou/research-hub) (`gap-to-topic`), [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) (`hypothesis-generation`) | MIT |
+| 2. Literature review | K-Dense `literature-review`, WenyuChiou `literature-triage-matrix`, claude-scholar `literature-reviewer` | MIT |
+| 3. Research question | WenyuChiou `research-design-helper`, claude-scholar `research-ideation`, K-Dense `hypothesis-generation` | MIT |
+| 4. Methodology | K-Dense `experimental-design` and `statistical-power`, [fcakyon/phd-skills](https://github.com/fcakyon/phd-skills) `experiment-design` | MIT |
+| 5. Analysis and results | claude-scholar `results-analysis`, K-Dense `statistical-analysis` | MIT |
+| 6. Paper writing | K-Dense `scientific-writing`, claude-scholar `writing-anti-ai` | MIT |
+| 7. Final review | claude-scholar `paper-self-review` and `citation-verification`, K-Dense `peer-review`, phd-skills `paper-check` | MIT |
+
+What is new here: one shared evidence ledger across all stages, hard gates between stages, a citation verification script with fixed matching rules, and the single agent that ties the stages together. Full details and the notices to keep are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
+If these skills materially help your work, the K-Dense authors ask that you cite the Scientific Agent Skills library (Kassis et al., 2026, arXiv:2609.00065). Check the current arXiv record for details before citing.
 
 ## Contributing
 

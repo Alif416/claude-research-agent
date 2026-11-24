@@ -1,35 +1,53 @@
 ---
 name: paper-writing
-description: Stage 6 of a research project. Use when the user wants to draft the research paper, or a specific section such as abstract, introduction, related work, methods, results, discussion or conclusion, from the earlier stage files. Not for running experiments.
+description: Stage 6 of a research project. Use when the user wants to draft the paper, or a section of it, from the earlier stage files. Writes only from the evidence ledger, keeps unsupported content in an unresolved list, reconciles methods and results, and removes AI-sounding patterns. Not for running experiments.
 ---
 
 # Paper writing
 
-Goal: a clear first draft built from the project files, in the user's voice, with no invented content.
+Goal: a clear first draft in the user's voice, where every fact traces back to the evidence ledger.
+
+> Adapted from `scientific-writing` (K-Dense-AI/scientific-agent-skills, MIT) and `writing-anti-ai` (Galaxy-Dawn/claude-scholar, MIT). Rewritten and merged for this project. See THIRD-PARTY-NOTICES.md.
+
+## Intake
+
+Ask what is missing: target venue and its current author instructions (check the official page, do not assume), page or word limit, template, reporting guideline for the study type, and authorship and AI-use disclosure requirements. If the user shares past writing, match it.
+
+## Principles
+
+- Three jobs stay separate: drafting, checking evidence, and approving for submission. You do the first, help with the second, and the user does the third.
+- Fluent text is not evidence. Every factual or numeric claim must link to a ledger ID.
+- The user is the author and is accountable for the paper. AI is not an author.
 
 ## Steps
 
-1. Ask which venue or format applies (course report, thesis chapter, conference, journal) and the page or word limit. If the user has a template, use its section order. Otherwise use: Abstract, Introduction, Related Work, Method, Experiments, Results, Discussion, Limitations, Conclusion, References.
-2. Read all earlier stage files. Draft from them. Do not add claims, numbers or citations that are not in those files.
-3. Write in this order, which is easier than front to back: Method, Experiments and Results, Related Work, Introduction, Discussion and Limitations, Conclusion, Abstract last.
-4. Introduction pattern: the problem and why it matters, what is missing in current work, what this paper does, what it contributes (matching the research question stage), and a short roadmap only if the venue expects one.
-5. Related work comes from the literature review, grouped by theme, and ends by saying how this work differs.
-6. Every number in the text must match `05-results.md`. Every citation must be in the verified reference list from the literature review.
-7. Ask for the user's feedback after each major section before moving on, unless they asked for a full draft in one go.
+1. **Set up.** Read all earlier files and `evidence-ledger.md`. List what is missing for each section before writing.
+2. **Outline from evidence only.** Each section outline cites ledger IDs. While drafting, tag factual sentences with their IDs, for example `[C007: S003, S011]`, and strip the tags only at the end. Content with no support goes in the `Unresolved` list in the ledger, not into the draft.
+3. **Draft in this order:** Method, Experiments and Results, Related Work, Introduction, Discussion and Limitations, Conclusion, Abstract last. Use the venue's section order if it differs.
+   - Introduction: the problem and why it matters, what current work misses, what this paper does, contributions that match the research question card.
+   - Related work: from the literature review, grouped by theme, ending with how this work differs.
+   - Results: only numbers from `05-results.md`, with the same wording limits as the claim candidates. Report null and negative results. Mark exploratory analyses as exploratory.
+   - Limitations: honest and specific.
+4. **Reconcile.** Check that methods and results describe the same data, splits and metrics. Name any difference in analysis sets.
+5. **Cleanup pass for AI patterns.** Cut filler openers and emphasis words, shorten wordy phrases ("in order to" becomes "to"), use "is" instead of "serves as", avoid forced lists of three, drop vague attributions ("experts say"), and vary sentence length. Do not strip meaning, and keep the author's own voice. Score the draft from 1 to 10 on directness, rhythm, trust in the reader, authenticity and density, and fix the lowest.
+6. **Show the user** each major section and take feedback before the next, unless they asked for a full draft in one go.
 
+## Reference files
+
+- `references/structure-and-reporting.md`: evidence binding, never-invent list, reporting guidelines by study type, section purposes, consistency checks
+- `references/ai-patterns.md`: the pattern list, filler to cut, hedging, voice, and the 1 to 10 score
 ## Style
 
-- Plain, direct sentences. Say what was done and what was found.
-- No em-dashes, no hype words ("novel", "groundbreaking", "state-of-the-art") unless the results clearly support them, and no filler openers.
-- Prefer active voice. Define each term once, then use it the same way every time.
-- Match the user's own writing if they share samples.
+Short, direct sentences. Active voice. Define each term once and use it the same way after. No em-dashes, no hype words such as "novel" or "state-of-the-art" unless the results clearly support them.
 
-## Output file
+## Output
 
-Save to `research/<project-slug>/06-draft.md`, one section at a time or whole.
+Save `research/<project-slug>/06-draft.md`, a section at a time or whole. Update `evidence-ledger.md` with any new IDs.
 
 ## Rules
 
-- Do not fabricate. If a section lacks material, write a short placeholder note saying what is missing.
+- Never invent a citation, number, method, approval, funding source or disclosure. If missing, write `[MISSING: what is needed]`.
+- Never overstate. Keep the uncertainty the results carry.
+- Do not turn association into causation.
 - Do not paste long passages from other papers. Paraphrase and cite.
-- Flag claims that are stronger than the evidence.
+- Do not send the unpublished draft to outside services you were not asked to use.
