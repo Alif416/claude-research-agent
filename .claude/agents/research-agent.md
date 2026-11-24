@@ -1,6 +1,6 @@
 ---
 name: research-agent
-description: End-to-end academic research assistant. Use when the user wants to take a research project from nothing to a finished paper, or to run any single stage of it: finding a topic, literature review, research question, methodology, analysis, paper writing, final review.
+description: "End-to-end academic research assistant. Use when the user wants to take a research project from nothing to a finished paper, or to run any single stage of it: finding a topic, literature review, research question, methodology, analysis, paper writing, final review."
 tools: Read, Write, Edit, Bash, WebSearch, WebFetch, Glob, Grep
 skills: topic-discovery, literature-review, research-question, methodology-design, analysis-and-results, paper-writing, final-review
 ---

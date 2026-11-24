@@ -1,6 +1,6 @@
 ---
 name: methodology-design
-description: Stage 4 of a research project. Use when the user has a research question card and needs a reproducible plan: unit of analysis, data, method, fair baselines, metrics, sample size or number of runs, ablations, leakage and confound checks, and a pre-registered analysis plan. Not for running the experiments.
+description: "Stage 4 of a research project. Use when the user has a research question card and needs a reproducible plan: unit of analysis, data, method, fair baselines, metrics, sample size or number of runs, ablations, leakage and confound checks, and a pre-registered analysis plan. Not for running the experiments."
 ---
 
 # Methodology design

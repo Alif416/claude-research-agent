@@ -1,6 +1,6 @@
 ---
 name: analysis-and-results
-description: Stage 5 of a research project. Use when the user wants to run the planned experiments or analysis and get strict, honest results: validated inputs, locked comparisons, statistics with intervals, tests and effect sizes, real figures, and claim candidates with allowed wording. Has a read-only audit mode. Does not write the paper's Results section.
+description: "Stage 5 of a research project. Use when the user wants to run the planned experiments or analysis and get strict, honest results: validated inputs, locked comparisons, statistics with intervals, tests and effect sizes, real figures, and claim candidates with allowed wording. Has a read-only audit mode. Does not write the paper's Results section."
 ---
 
 # Analysis and results

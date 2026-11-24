@@ -11,7 +11,9 @@ From a broad idea to a reviewed paper draft, one verified stage at a time.</p>
 </p>
 
 <p align="center">
-  <a href="#user-manual">User manual</a> ·
+  <a href="#how-to-use-it">How to use it</a> ·
+  <a href="#installation">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
   <a href="#the-seven-stages">The seven stages</a> ·
   <a href="#how-the-literature-search-works">Literature search</a> ·
   <a href="#credits">Credits</a> ·
@@ -28,148 +30,64 @@ You give it a research area. It helps you find a topic, review the literature, s
 
 ## Table of contents
 
-1. [User manual](#user-manual)
+1. [How to use it](#how-to-use-it)
 2. [The problem](#the-problem)
 3. [What this project is](#what-this-project-is)
 4. [How it works](#how-it-works)
 5. [The seven stages](#the-seven-stages)
-6. [A full walkthrough](#a-full-walkthrough)
-7. [Project folder layout](#project-folder-layout)
-8. [How the literature search works](#how-the-literature-search-works)
-9. [Output formats](#output-formats)
-10. [Built-in rules](#built-in-rules)
-11. [Customizing the skills](#customizing-the-skills)
-12. [Limitations](#limitations)
-13. [Troubleshooting](#troubleshooting)
-14. [Repository structure](#repository-structure)
-15. [Credits](#credits)
-16. [Contributing](#contributing)
-17. [License](#license)
+6. [Requirements](#requirements)
+7. [Installation](#installation)
+8. [Quick start](#quick-start)
+9. [A full walkthrough](#a-full-walkthrough)
+10. [Project folder layout](#project-folder-layout)
+11. [How the literature search works](#how-the-literature-search-works)
+12. [Output formats](#output-formats)
+13. [Built-in rules](#built-in-rules)
+14. [Customizing the skills](#customizing-the-skills)
+15. [Limitations](#limitations)
+16. [Troubleshooting](#troubleshooting)
+17. [Repository structure](#repository-structure)
+18. [Credits](#credits)
+19. [Contributing](#contributing)
+20. [License](#license)
 
 ---
 
-## User manual
+## How to use it
 
-A step-by-step guide. You do not need to know anything about agents or skills to follow it.
+You need [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) installed. Then it takes four steps.
 
-### What you need
-
-- [Claude Code](https://docs.claude.com/en/docs/claude-code/overview), installed and signed in
-- Python 3.8 or newer (the search scripts use only the standard library, so there is nothing to install)
-- Internet access, for paper search and web lookups
-- Optional: a free [Semantic Scholar API key](https://www.semanticscholar.org/product/api) to avoid rate limits. Set it with `export S2_API_KEY="your-key-here"`.
-
-### Step 1. Install it
-
-Pick one.
-
-**For one project only**
+**1. Get the agent**
 
 ```bash
 git clone https://github.com/Alif416/claude-research-agent.git
 cp -r claude-research-agent/.claude /path/to/your/research-project/
 ```
 
-**For every project on your computer**
+**2. Open Claude Code in that project folder and restart it.** Type `/agents`. You should see `research-agent`.
 
-```bash
-git clone https://github.com/Alif416/claude-research-agent.git
-cp -r claude-research-agent/.claude/agents/. ~/.claude/agents/
-cp -r claude-research-agent/.claude/skills/. ~/.claude/skills/
-```
-
-Open Claude Code (or restart it) and type `/agents`. You should see `research-agent` in the list. If you do, the install worked.
-
-### Step 2. Choose how you talk to it
-
-You have three ways. They can be combined.
-
-| Way | How | Good for |
-|---|---|---|
-| Name it in each request | Start your message with "Use the research-agent to ..." | Works in any setup |
-| Start the session as the agent | Run `claude --agent research-agent`, then just type normally | Easiest day to day, if your Claude Code version supports it (check `claude --help`) |
-| Tell Claude once per project | Put this line in a file called `CLAUDE.md` in your project: *For any research task (topic, literature review, research question, methodology, analysis, paper writing, review), use the research-agent.* | You stop having to name it |
-
-### Step 3. Run the project, one stage at a time
-
-The agent does one stage, shows you the result, and waits. Copy these prompts and replace the parts in angle brackets.
-
-| Stage | What to say | What you get |
-|---|---|---|
-| 1. Topic | `Use the research-agent to find a research topic in <your area>. I have <time>, <compute>, and I know <skills>.` | A short list of candidate topics, each checked three ways, and a recommendation |
-| 2. Literature review | `Use the research-agent to do a literature review on <your topic>.` | A themed review, a comparison table, the gaps, and a list of verified references |
-| 3. Research question | `Use the research-agent to write the research question.` | A one-page Research Question Card with hypotheses |
-| 4. Methodology | `Use the research-agent to design the methodology.` | A plan: data, method, baselines, metrics, sample size, risks |
-| 5. Analysis | `Use the research-agent to run the analysis.` | Code, real results, figures, and honest wording for each claim |
-| 6. Paper | `Use the research-agent to draft the paper for <venue>.` | A draft where every claim traces to your evidence |
-| 7. Review | `Use the research-agent to review the draft.` | A checklist of problems and a verdict on whether it is ready |
-
-Already have a topic? Skip stage 1 and start at stage 2, or ask for stage 1 to check your topic.
-
-### Step 4. Answer its questions
-
-At the end of every stage the agent will:
-
-1. Summarize what it found or decided.
-2. Ask which format you want: Markdown file, Word (.docx), PDF, or just a reply in the chat.
-3. Ask whether to continue to the next stage, change something, or stop.
-
-When it gives you a choice (for example, several candidate topics), reply with your pick and your reason, such as `I choose candidate 2 because I already have the dataset`. It writes your choice at the top of that stage's file, so later stages follow your decision and not its own recommendation.
-
-### Step 5. Stop and come back any time
-
-Say:
+**3. Tell it what you want**
 
 ```
-Use the research-agent to continue the project
+Use the research-agent to find a research topic in <your area>
 ```
 
-It reads its saved notes and picks up where you left off.
+**4. Keep going, one step at a time.** After each step, the agent shows you the result and asks which format you want. When you are happy, say what comes next:
 
-### Step 6. Change your mind
+| You say | It does |
+|---|---|
+| Use the research-agent to do the literature review | Finds and checks papers |
+| Use the research-agent to write the research question | Shapes your question |
+| Use the research-agent to design the methodology | Plans the method |
+| Use the research-agent to run the experiments | Runs the analysis |
+| Use the research-agent to draft the paper | Writes the draft |
+| Use the research-agent to review the draft | Checks it before you submit |
 
-You can go back at any point. For example:
+Stopped for the day? Say **"Use the research-agent to continue the project"** and it picks up where you left off.
 
-```
-Change the research question to focus on <new focus>, then update the methodology.
-```
+Your work is saved in a `research/` folder in your project, one file per step. You can read and edit any of them. The agent is built not to invent papers or numbers, and it marks anything it cannot verify. Still check key citations yourself before you submit.
 
-The agent updates the files and notes the change.
-
-### Where your work is saved
-
-Everything lives in a `research/<project-name>/` folder inside your project:
-
-```
-00-state.md              where you are and what you decided
-01-topic.md              topic candidates and your chosen topic
-02-literature-review.md  the review and references
-03-research-question.md  the Research Question Card
-04-methodology.md        the plan
-05-results.md            results and claims
-06-draft.md              the paper draft
-07-review.md             the final check
-evidence-ledger.md       every paper, claim and number, with where it came from
-```
-
-They are plain text files. Open them in any editor and fix anything you disagree with. The agent reads your edits next time.
-
-### Good habits
-
-- **Check important citations yourself** before you submit. The agent verifies references and marks anything it could not confirm, but you are the author.
-- **Give it limits up front**: time, computer, data, and what the work is for. It chooses more realistic topics and plans.
-- **Do not skip stages without a reason.** If you ask it to, it will tell you what the stage protects against and let you decide.
-- **Edit the draft in your own words.** The agent includes a style check, but your own edits make it sound like you.
-- **Follow your venue's rules** on disclosing AI help.
-
-### If something goes wrong
-
-- `research-agent` is not in `/agents`: check that the `.claude` folder is in the project folder you opened, then restart Claude Code.
-- It does not use the agent: start your message with "Use the research-agent to ...", or use one of the other ways in Step 2.
-- Paper search returns nothing or errors: check your internet connection. If it says rate limited, wait a minute or set the Semantic Scholar key.
-- It says an earlier stage is missing: run that stage first, or tell it to continue without it.
-
-More fixes are in [Troubleshooting](#troubleshooting).
+More detail is in [Installation](#installation) and [Quick start](#quick-start) below.
 
 ---
 
@@ -241,6 +159,75 @@ You can run the stages in order from start to finish, or jump to one stage if yo
 | 5 | Analysis and results | `analysis-and-results` | Writes and runs code for the planned experiments, uses fixed seeds, reports spread across runs, and interprets each hypothesis as supported, not supported, or inconclusive | `05-results.md` plus `code/` and `results/` |
 | 6 | Paper draft | `paper-writing` | Drafts the paper from the earlier files, section by section, in plain language, with numbers and citations taken only from those files | `06-draft.md` |
 | 7 | Final review | `final-review` | Checks claims against evidence, numbers against raw results, citations against searches, then simulates a tough reviewer and lists fixes by priority | `07-review.md` |
+
+## Requirements
+
+- [Claude Code](https://docs.claude.com/en/docs/claude-code/overview), installed and signed in
+- Python 3.8 or newer for the two search scripts (standard library only, nothing to `pip install`)
+- Internet access, for paper search and web lookups
+- Optional: a free [Semantic Scholar API key](https://www.semanticscholar.org/product/api) to avoid rate limits
+
+## Installation
+
+You can install it for a single project, or for every project on your machine.
+
+**Option 1: one project**
+
+```bash
+git clone https://github.com/Alif416/claude-research-agent.git
+cp -r claude-research-agent/.claude /path/to/your/research-project/
+```
+
+**Option 2: every project**
+
+```bash
+git clone https://github.com/Alif416/claude-research-agent.git
+cp -r claude-research-agent/.claude/agents/. ~/.claude/agents/
+cp -r claude-research-agent/.claude/skills/. ~/.claude/skills/
+```
+
+Then restart Claude Code and type `/agents`. You should see `research-agent` in the list.
+
+If you use the Semantic Scholar key:
+
+```bash
+export S2_API_KEY="your-key-here"
+```
+
+## Quick start
+
+Open Claude Code in your project folder and ask:
+
+```
+Use the research-agent to find a research topic in <your area>
+```
+
+Then continue stage by stage:
+
+```
+Use the research-agent to do the literature review on <chosen topic>
+Use the research-agent to write the research question
+Use the research-agent to design the methodology
+Use the research-agent to run the experiments
+Use the research-agent to draft the paper
+Use the research-agent to review the draft
+```
+
+At any point you can say:
+
+```
+Use the research-agent to continue the project
+```
+
+and it will read the state file and pick up where you stopped.
+
+Some Claude Code versions can run the whole session as the agent:
+
+```bash
+claude --agent research-agent
+```
+
+This lets the agent ask you questions directly. Check `claude --help` to see whether your version supports it.
 
 ## A full walkthrough
 
